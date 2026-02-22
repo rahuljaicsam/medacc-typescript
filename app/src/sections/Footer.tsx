@@ -11,7 +11,7 @@ const Footer = () => {
   ];
 
   const company = [
-    { name: 'Med/Acc Blog', href: '#blogs' },
+    { name: 'Med/Acc Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
     { name: 'Press', href: '#' },
     { name: 'People', href: '#' },

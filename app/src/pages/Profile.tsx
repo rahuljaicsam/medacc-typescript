@@ -267,6 +267,64 @@ const Profile = () => {
   const handleCourseClick = (title: string) => {
     if (title === 'General Knowledge Foundations') {
       navigate('/course/general-knowledge-foundations');
+    } else if (title === 'Biotech General Knowledge Mastery') {
+      navigate('/course/biotech');
+    } else if (title === 'Medical General Knowledge Essentials') {
+      navigate('/course/medical');
+    } else if (title === 'Bioethics & Society') {
+      navigate('/course/bioethics');
+    } else if (title === 'Regulatory Pathways') {
+      navigate('/course/regulatory');
+    } else if (title === 'Clinical Trial Design') {
+      navigate('/course/clinical-trial');
+    } else if (title === 'GMP Manufacturing Fundamentals') {
+      navigate('/course/gmp');
+    } else if (title === 'Quality Management Systems (ISO 13485)') {
+      navigate('/course/iso13485');
+    } else if (title === 'Health Economics & Reimbursement') {
+      navigate('/course/health-economics');
+    } else if (title === 'Biomaterials Innovation') {
+      navigate('/course/biomaterials');
+    } else if (title === 'Tech General Knowledge for Biotech') {
+      navigate('/course/tech-general-knowledge');
+    } else if (title === 'AI in Healthcare') {
+      navigate('/course/ai-healthcare');
+    } else if (title === 'Robotics in Healthcare') {
+      navigate('/course/robotics-healthcare');
+    } else if (title === 'App Development in Healthcare') {
+      navigate('/course/app-development-healthcare');
+    } else if (title === 'Digital Health Data Privacy') {
+      navigate('/course/digital-health-data-privacy');
+    } else if (title === 'Medtech Prototyping') {
+      navigate('/course/medtech-prototyping');
+    } else if (title === 'Cloud Computing for Life Sciences') {
+      navigate('/course/cloud-computing-life-sciences');
+    } else if (title === 'Market Analysis') {
+      navigate('/course/market-analysis');
+    } else if (title === 'IP & Patent Strategy') {
+      navigate('/course/ip-patent-strategy');
+    } else if (title === 'Legal General Knowledge for Entrepreneurs') {
+      navigate('/course/legal-general-knowledge');
+    } else if (title === 'Startup Fundraising') {
+      navigate('/course/startup-fundraising');
+    } else if (title === 'Strategic Partnerships') {
+      navigate('/course/strategic-partnerships');
+    } else if (title === 'Grant Writing for Non-Dilutive Funding') {
+      navigate('/course/grant-writing');
+    } else if (title === 'Biotech Supply Chain Management') {
+      navigate('/course/biotech-supply-chain');
+    } else if (title === 'Scientific Leadership & Team Building') {
+      navigate('/course/scientific-leadership');
+    } else if (title === 'Exit Strategies: M&A and IPOs') {
+      navigate('/course/exit-strategies');
+    } else if (title === 'Startup Project Accelerator') {
+      navigate('/course/startup-project-accelerator');
+    } else if (title === 'Biotech Innovation Hackathon') {
+      navigate('/course/biotech-innovation-hackathon');
+    } else if (title === '1-on-1 Founder Masterclass') {
+      navigate('/course/founder-masterclass');
+    } else if (title === 'Investor Pitch Workshop') {
+      navigate('/course/investor-pitch-workshop');
     }
   };
 

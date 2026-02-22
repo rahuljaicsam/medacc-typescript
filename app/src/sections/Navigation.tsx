@@ -67,22 +67,13 @@ const Navigation = () => {
               About Us
             </Link>
             
-            {/* Blogs - Anchor Link (only on home page) */}
-            {isHomePage ? (
-              <a
-                href="#blogs"
-                className="text-slate-600 hover:text-medical-blue font-medium transition-colors link-underline"
-              >
-                Blogs
-              </a>
-            ) : (
-              <Link
-                to="/#blogs"
-                className="text-slate-600 hover:text-medical-blue font-medium transition-colors link-underline"
-              >
-                Blogs
-              </Link>
-            )}
+            {/* Blogs - Router Link */}
+            <Link
+              to="/blog"
+              className="text-slate-600 hover:text-medical-blue font-medium transition-colors link-underline"
+            >
+              Blogs
+            </Link>
             
             {/* Resources Dropdown */}
             <DropdownMenu>

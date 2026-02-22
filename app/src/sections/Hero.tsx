@@ -119,7 +119,7 @@ const Hero = () => {
                 <div className="text-sm text-slate-500 mt-1">Startups</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-medical-teal font-display">$10M+</div>
+                <div className="text-3xl font-bold text-medical-teal font-display">$33M+</div>
                 <div className="text-sm text-slate-500 mt-1">Funding Raised</div>
               </div>
               <div>

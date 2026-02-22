@@ -188,7 +188,7 @@ const Apply = () => {
                       className="block w-full"
                     >
                       <Button className="w-full bg-medical-blue hover:bg-medical-blue-dark text-white py-6 text-lg shadow-lg shadow-medical-blue/25">
-                        Join Med/Acc ($1000)
+                        Join Med/Acc ($2200)
                       </Button>
                     </a>
                     <Link to="/syllabus" className="block w-full">

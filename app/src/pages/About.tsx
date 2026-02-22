@@ -9,6 +9,7 @@ interface TeamMember {
   credentials: string;
   bio: string;
   category: 'founder' | 'middle-east' | 'volunteer';
+  image?: string;
 }
 
 const teamMembers: TeamMember[] = [
@@ -21,7 +22,8 @@ const teamMembers: TeamMember[] = [
 As the founder of his own cutting-edge Medical AI and Robotics Research Laboratory, he is at the forefront of innovation in healthcare. He coauthored and trained frontier AI researchers from Silicon valley to MIT to Birmingham City to Singapore. In addition to his entrepreneurial ventures, Dr. Rahul serves as the Chief Technology Officer for leading pharmaceutical company and hospital, driving technological advancements and transformative solutions at grass root.
 
 He is also the founder of healthcare social platform spanning from Australia to South East Asia connecting trusted doctors with patients. His multifaceted expertise is further enriched by his role as an academic philosopher, where he explores the profound intersections of technology, medicine, and human knowledge. His latest venture is on building a full automation of hospitals, functional robot doctors and simulating entire human body with help of digital twin technology.`,
-    category: 'founder'
+    category: 'founder',
+    image: '/images/rahul.jpg'
   },
   {
     name: 'Dr. Raju M R',
@@ -34,7 +36,8 @@ With over a decade of experience, Dr. Raju has successfully funded and exited nu
 Currently, as the founder of MayaMD.ai, Dr. Raju leads the charge in AI-driven symptom analysis and virtual triage solutions, impacting over 7000 conditions. He is also a key consultant and advisor to various medical companies, from private jet air ambulance services to cutting-edge femtech startups, fostering innovation and driving advancements in personalized care and digital therapeutics.
 
 Dr. Raju's commitment to excellence and his passion for harnessing technology to solve complex health challenges make him an inspiring figure in the healthcare industry. His work continues to pave the way for future innovations, enhancing patient care and revolutionizing the way we approach health and wellness.`,
-    category: 'founder'
+    category: 'founder',
+    image: '/images/raju.jpeg'
   },
   {
     name: 'Pratheek Remesh Menon',
@@ -47,7 +50,8 @@ Pratheek brings a wealth of experience from his previous roles, including a pivo
 He holds an MBA from IIM Ahmedabad and a Master's in Biomedical Engineering from Duke University, with a focus on neuro-engineering. His educational background and professional journey are marked by a commitment to leveraging technology to improve healthcare outcomes.
 
 Pratheek's work at Saath Care includes developing an AI-enabled decision support system for specialist doctors and a national-level patient research portal. His strategic vision and technical acumen make him a key player in the digital health landscape, dedicated to enhancing patient care through innovative technologies. He is a graduate of Vellore Institute of Technology as well.`,
-    category: 'founder'
+    category: 'founder',
+    image: '/images/pratheek.jpeg'
   },
   {
     name: 'Juliya George',
@@ -58,7 +62,8 @@ Pratheek's work at Saath Care includes developing an AI-enabled decision support
 Her expertise includes Edtech, Financial Analysis, Sales, Customer Service, Digital Marketing and Client Prospecting. Juliya graduated from Asian School of Business with a degree in MBA - Finance and Marketing. Throughout her career, she has certified herself in digital marketing and marketing finance.
 
 Outside of work, Juliya enjoys household consumership research and trial, which contributes to her well-rounded approach to problem-solving and innovation in the workplace of healthcare and life science consumership.`,
-    category: 'middle-east'
+    category: 'middle-east',
+    image: '/images/juliya.jpg'
   },
   {
     name: 'Gokul Gopi',
@@ -71,7 +76,8 @@ Previously, he led Marketing Analytics at Emirates—building A/B testing framew
 Earlier roles include Senior Digital Analyst at Fidelity Investments, specializing in personalization algorithms with Adobe Target and BigQuery, and Marketing Analytics Analyst at HSBC.
 
 Gokul holds a postgraduate degree in Finance from IMT Ghaziabad and a B.Tech. in Electrical & Electronics Engineering from NIT Karnataka, and is proficient in Google Cloud (BigQuery, Vertex AI), Adobe Analytics & Target, Google Analytics, Python, SQL, and multivariate testing.`,
-    category: 'middle-east'
+    category: 'middle-east',
+    image: '/images/gokul.jpeg'
   },
   {
     name: 'Govind Gopu',
@@ -82,26 +88,27 @@ Gokul holds a postgraduate degree in Finance from IMT Ghaziabad and a B.Tech. in
 • Machine Learning, Computer vision and rover automation expert
 • Expert in AI generated video marketing and social media content
 • Building a complete AI-film studio and directory platform to generate hollywood production movie by himself`,
-    category: 'volunteer'
+    category: 'volunteer',
+    image: '/images/govind.jpg'
   },
   {
     name: 'Sidharth Narayanan',
     role: 'COO at Cytokine Lectures, Founder of Medinn Networking',
-    credentials: 'Final year Medical Student (MBBS)',
+    credentials: 'Intern Medical  (MBBS)',
     bio: `• COO Cytokine Lectures- Exclusive clinical platform for Medical Students with over 5000+ Subscribers that recorded an annual revenue of 25+ Lakhs
 • Marketing Intern cum ambassador for Doc Tutorials & DBMCI Edutech platforms with sales amounting to 10 Lakhs
 • Young Innovators Programme- KDISC Kerala Intern & selected for State Level
 • Recipient of KUHS Research appreciation awards 2024
 • Currently building Medical Innovation Hubs for Medical Colleges with IEDC Kerala in view of IEDC Summit, NITC Calicut
 • State Secretary of All India Research Society & Organizing student Member of Doctors AI Global Virtual Summit`,
-    category: 'volunteer'
+    category: 'volunteer',
+    image: '/images/siddharth.jpg'
   },
   {
-    name: 'Amartya Sen',
-    role: 'Google Developer Student Club Campus Lead',
-    credentials: 'Pre-Final year CS Engineering Student',
-    bio: `• Freelance Marketing Intern cum ambassador for startups
-• GDSCC lead and event management host for South India`,
+    name: 'Saiyan Jacob',
+    role: 'Social Media Management automation',
+    credentials: 'Btech',
+    bio: `Freelance Digital Marketing Expert for GCC- fintech- AI avatars`,
     category: 'volunteer'
   },
   {
@@ -111,7 +118,8 @@ Gokul holds a postgraduate degree in Finance from IMT Ghaziabad and a B.Tech. in
     bio: `• Specialised in Biotech, Biomedical and Nutrition UX-UI Design
 • Well versed international research level expertise in nutrition
 • Currently experting in fintech business designs`,
-    category: 'volunteer'
+    category: 'volunteer',
+    image: '/images/devanshoo.jpeg'
   }
 ];
 
@@ -129,8 +137,12 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       <div className="p-6">
         {/* Avatar and Basic Info */}
         <div className="flex items-start gap-4 mb-4">
-          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-medical-blue to-medical-teal flex items-center justify-center flex-shrink-0">
-            <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
+          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-medical-blue to-medical-teal flex items-center justify-center flex-shrink-0 overflow-hidden">
+            {member.image ? (
+              <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+            ) : (
+              <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
+            )}
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>

@@ -93,7 +93,7 @@ const CourseAd = () => {
 
               <h3 className="text-2xl font-bold text-slate-900 mb-2">Complete Program</h3>
               <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-5xl font-bold text-medical-blue">$1,400</span>
+                <span className="text-5xl font-bold text-medical-blue">$2,200</span>
                 <span className="text-slate-500 text-lg">USD</span>
               </div>
 

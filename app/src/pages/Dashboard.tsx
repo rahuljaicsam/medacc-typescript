@@ -90,14 +90,37 @@ const Dashboard = () => {
               
               // Handle known variations/mappings
               if (!firestoreCourse) {
-                   if (slug === 'general-knowledge-foundations' && progressData['general-knowledge']) {
-                       firestoreCourse = progressData['general-knowledge'];
+                   // Map course slug to firestore key if different
+                   const keyMap: {[key: string]: string} = {
+                     'general-knowledge-foundations': 'general-knowledge',
+                     'biotech-general-knowledge-mastery': 'biotech-general-knowledge',
+                     'medical-general-knowledge-essentials': 'medical-general-knowledge',
+                     'bioethics-society': 'bioethics',
+                     'regulatory-pathways': 'regulatory',
+                     'clinical-trial-design': 'clinical-trial',
+                     'gmp-manufacturing-fundamentals': 'gmp',
+                     'quality-management-systems-iso-13485': 'iso13485',
+                     'health-economics-reimbursement': 'health-economics',
+                     'biomaterials-innovation': 'biomaterials',
+                     'tech-general-knowledge-for-biotech': 'tech-general-knowledge',
+                     'ai-in-healthcare': 'ai-healthcare',
+                     'robotics-in-healthcare': 'robotics-healthcare',
+                     'app-development-in-healthcare': 'app-development-healthcare',
+                     'cloud-computing-for-life-sciences': 'cloud-computing',
+                     'legal-general-knowledge-for-entrepreneurs': 'legal-general-knowledge',
+                     'grant-writing-for-non-dilutive-funding': 'grant-writing',
+                     'biotech-supply-chain-management': 'biotech-supply-chain',
+                     'scientific-leadership-team-building': 'scientific-leadership',
+                     'exit-strategies-m-a-and-ipos': 'exit-strategies',
+                     '1-on-1-founder-masterclass': 'founder-masterclass'
+                   };
+
+                   if (keyMap[slug] && progressData[keyMap[slug]]) {
+                     firestoreCourse = progressData[keyMap[slug]];
                    }
-                   else if (slug === 'biotech-general-knowledge-mastery' && progressData['biotech-general-knowledge']) {
-                        firestoreCourse = progressData['biotech-general-knowledge'];
-                   }
-                   else if (slug === 'ip-patent-strategy' && progressData['ip-patent-strategy']) {
-                        firestoreCourse = progressData['ip-patent-strategy'];
+                   // Also check direct match in case of minor discrepancies
+                   else if (progressData[slug.replace(/-/g, '')]) {
+                      firestoreCourse = progressData[slug.replace(/-/g, '')];
                    }
               }
 
@@ -106,15 +129,17 @@ const Dashboard = () => {
                 let isStarted = false;
                 let isCompleted = false;
                 
-                // Check modules
-                let moduleKeys: string[] = [];
-                if (firestoreCourse.modules) {
-                  moduleKeys = Object.keys(firestoreCourse.modules).filter(k => k.startsWith('module-'));
-                }
-                
+                // Check modules (array of IDs or object keys)
                 let completedModulesCount = 0;
-                
-                if (firestoreCourse.modules) {
+
+                // Handle array format (new courses)
+                if (Array.isArray(firestoreCourse)) {
+                  completedModulesCount = firestoreCourse.length;
+                  if (completedModulesCount > 0) isStarted = true;
+                } 
+                // Handle object format (legacy courses)
+                else if (firestoreCourse.modules) {
+                  const moduleKeys = Object.keys(firestoreCourse.modules).filter(k => k.startsWith('module-'));
                   moduleKeys.forEach(modKey => {
                     const mod = firestoreCourse.modules[modKey];
                     if (mod.status === 'completed' || mod.completed === true) {
@@ -133,17 +158,15 @@ const Dashboard = () => {
                   isCompleted = true;
                 } else if (course.totalModules && completedModulesCount >= course.totalModules) {
                   isCompleted = true;
-                } else if (moduleKeys.length > 0 && completedModulesCount === moduleKeys.length && !course.totalModules) {
-                  // Only auto-complete if we don't know total modules
-                  isCompleted = true;
-                } else if (moduleKeys.length > 0) {
-                  isStarted = true;
-                } else if (firestoreCourse.status === 'in_progress' || firestoreCourse.startedAt) {
-                  isStarted = true;
+                } else if (completedModulesCount >= 9) { // Default assumption if totalModules missing
+                   isCompleted = true;
                 }
 
+                let currentProgress = 0;
+                
                 if (isCompleted) {
                   status = 'Completed';
+                  currentProgress = 100;
                   totalCompleted++;
                   totalProgressSum += 100;
                   coursesWithProgress++;
@@ -151,15 +174,16 @@ const Dashboard = () => {
                   status = 'In Progress';
                   totalStarted++;
                   // Calculate progress percentage
-                  const total = course.totalModules || Math.max(moduleKeys.length, 1);
-                  const progress = (completedModulesCount / total) * 100;
-                  totalProgressSum += progress;
+                  const total = course.totalModules || 9; // Default to 9 if unknown
+                  const calculatedProgress = Math.min((completedModulesCount / total) * 100, 100);
+                  currentProgress = Math.round(calculatedProgress);
+                  totalProgressSum += calculatedProgress;
                   coursesWithProgress++;
                 }
 
-                return { ...course, status };
+                return { ...course, status, progress: currentProgress };
               }
-              return course;
+              return { ...course, progress: 0 };
             });
 
             setCourseData(updatedCourses);
@@ -176,8 +200,8 @@ const Dashboard = () => {
       } else {
         // Demo fallback
         setUser({
-          displayName: 'Rahul J S',
-          email: 'rahuljaicsam@gmail.com',
+          displayName: 'Guest User',
+          email: 'guest@medacc.com',
           photoURL: null
         });
       }
@@ -188,14 +212,49 @@ const Dashboard = () => {
   }, []);
 
   const handleCourseClick = (title: string) => {
-    if (title === 'General Knowledge Foundations') {
-      navigate('/course/general-knowledge-foundations');
+    const routeMap: {[key: string]: string} = {
+      'General Knowledge Foundations': '/course/general-knowledge-foundations',
+      'Biotech General Knowledge Mastery': '/course/biotech',
+      'Medical General Knowledge Essentials': '/course/medical',
+      'Bioethics & Society': '/course/bioethics',
+      'Regulatory Pathways': '/course/regulatory',
+      'Clinical Trial Design': '/course/clinical-trial',
+      'GMP Manufacturing Fundamentals': '/course/gmp',
+      'Quality Management Systems (ISO 13485)': '/course/iso13485',
+      'Health Economics & Reimbursement': '/course/health-economics',
+      'Biomaterials Innovation': '/course/biomaterials',
+      'Tech General Knowledge for Biotech': '/course/tech-general-knowledge',
+      'AI in Healthcare': '/course/ai-healthcare',
+      'Robotics in Healthcare': '/course/robotics-healthcare',
+      'App Development in Healthcare': '/course/app-development-healthcare',
+      'Digital Health Data Privacy': '/course/digital-health-data-privacy',
+      'Medtech Prototyping': '/course/medtech-prototyping',
+      'Cloud Computing for Life Sciences': '/course/cloud-computing-life-sciences',
+      'Market Analysis': '/course/market-analysis',
+      'IP & Patent Strategy': '/course/ip-patent-strategy',
+      'Legal General Knowledge for Entrepreneurs': '/course/legal-general-knowledge',
+      'Startup Fundraising': '/course/startup-fundraising',
+      'Strategic Partnerships': '/course/strategic-partnerships',
+      'Grant Writing for Non-Dilutive Funding': '/course/grant-writing',
+      'Biotech Supply Chain Management': '/course/biotech-supply-chain',
+      'Scientific Leadership & Team Building': '/course/scientific-leadership',
+      'Exit Strategies: M&A and IPOs': '/course/exit-strategies',
+      'Startup Project Accelerator': '/course/startup-project-accelerator',
+      'Biotech Innovation Hackathon': '/course/biotech-innovation-hackathon',
+      '1-on-1 Founder Masterclass': '/course/founder-masterclass',
+      'Investor Pitch Workshop': '/course/investor-pitch-workshop'
+    };
+
+    if (routeMap[title]) {
+      navigate(routeMap[title]);
+    } else {
+      console.warn(`No route found for course: ${title}`);
     }
   };
 
   const filteredCourses = courseData.filter(course => {
     if (activeTab === 'all') return true;
-    if (activeTab === 'not-started') return course.status === 'Not Started';
+    if (activeTab === 'not-started') return course.status === 'Not Started' || course.status === 'Loading...' || course.status === 'Registration Open' || course.status === 'Available';
     if (activeTab === 'in-progress') return course.status === 'In Progress';
     if (activeTab === 'completed') return course.status === 'Completed';
     return true;
@@ -374,6 +433,7 @@ const Dashboard = () => {
                           'text-slate-500'
                         }>
                           {course.status}
+                          {course.status === 'In Progress' && course.progress ? ` (${course.progress}%)` : ''}
                         </Badge>
                       </div>
                       <div className="w-full bg-slate-100 rounded-full h-1.5 mt-2">
@@ -381,10 +441,7 @@ const Dashboard = () => {
                           className={`h-1.5 rounded-full transition-all duration-500 ${
                             course.status === 'Completed' ? 'bg-green-500' : 'bg-medical-blue'
                           }`}
-                          style={{ 
-                            width: course.status === 'Completed' ? '100%' : 
-                                   course.status === 'In Progress' ? '40%' : '0%' 
-                          }}
+                          style={{ width: `${course.progress || 0}%` }}
                         ></div>
                       </div>
                     </div>

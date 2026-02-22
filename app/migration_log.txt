@@ -1,0 +1,88 @@
+
+≡ƒôª Processing: metrics
+  ≡ƒôä Found 104 docs
+
+≡ƒôª Processing: MBBS
+  ≡ƒôä Found 34 docs
+
+≡ƒôª Processing: MD
+  ≡ƒôä Found 9 docs
+
+≡ƒôª Processing: MS
+  ≡ƒôä Found 5 docs
+
+≡ƒôª Processing: DM
+  ≡ƒôä Found 1 docs
+
+≡ƒôª Processing: MCh
+  ≡ƒôä Found 0 docs
+
+≡ƒôª Processing: General Surgery
+  ≡ƒôä Found 3 docs
+
+≡ƒôª Processing: Ophthalmology
+  ≡ƒôä Found 2 docs
+
+≡ƒôª Processing: Orthopedics
+  ≡ƒôä Found 2 docs
+
+≡ƒôª Processing: Otorhinolaryngology
+  ≡ƒôä Found 1 docs
+
+≡ƒôª Processing: Anesthesiology
+  ≡ƒôä Found 2 docs
+
+≡ƒôª Processing: Community Medicine
+  ≡ƒôä Found 1 docs
+
+≡ƒôª Processing: Dermatology
+  ≡ƒôä Found 3 docs
+
+≡ƒôª Processing: Emergency Medicine
+  ≡ƒôä Found 2 docs
+
+≡ƒôª Processing: Internal Medicine
+  ≡ƒôä Found 6 docs
+
+≡ƒôª Processing: Microbiology
+  ≡ƒôä Found 2 docs
+
+≡ƒôª Processing: Pathology
+  ≡ƒôä Found 1 docs
+
+≡ƒôª Processing: Pediatrics
+  ≡ƒôä Found 5 docs
+
+≡ƒôª Processing: Radiology
+  ≡ƒôä Found 1 docs
+
+≡ƒôª Processing: Cardiology
+  ≡ƒôä Found 1 docs
+
+≡ƒôª Processing: Neurology
+  ≡ƒôä Found 0 docs
+
+≡ƒôª Processing: Gastroenterology
+  ≡ƒôä Found 0 docs
+
+≡ƒôª Processing: Nephrology
+  ≡ƒôä Found 0 docs
+
+≡ƒôª Processing: Urology
+  ≡ƒôä Found 0 docs
+
+≡ƒôª Processing: Neurosurgery
+  ≡ƒôä Found 0 docs
+
+≡ƒôª Processing: GP or Freelance
+  ≡ƒôä Found 2 docs
+  Γ£à Committed batch (207 total migrated)
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+          MIGRATION COMPLETE
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+Γ£à Total migrated:     207
+ΓÅ¡∩╕Å  Total skipped:      23 (no coords / duplicates)
+Γ¥î Total errors:       0
+≡ƒôª Unique dedup keys:  207
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ

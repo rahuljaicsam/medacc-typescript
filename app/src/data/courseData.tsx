@@ -32,6 +32,7 @@ export type CourseModule = {
   action: 'Start Course' | 'Start Project' | 'Register Now' | 'Book Session' | 'Continue';
   icon: React.ReactNode;
   totalModules?: number;
+  progress?: number;
 }
 
 // Mock Data matching the user request
@@ -212,18 +213,18 @@ export const INITIAL_COURSE_DATA: CourseModule[] = [
     action: 'Start Course',
     icon: <Cloud className="w-6 h-6" />
   },
-
-  // Business Modules
   {
     id: '18',
     title: 'Market Analysis',
-    rating: '4.5/5',
+    rating: '4.8/5',
     participants: '35 companies',
     description: 'Master market research and competitive analysis for biotech ventures.',
     status: 'Not Started',
     action: 'Start Course',
-    icon: <Briefcase className="w-6 h-6" />
+    icon: <TrendingUp className="w-6 h-6" />
   },
+
+  // Business Modules
   {
     id: '19',
     title: 'IP & Patent Strategy',
@@ -334,7 +335,8 @@ export const INITIAL_COURSE_DATA: CourseModule[] = [
     description: 'Exclusive mentorship sessions with Med/Acc co-founders for personalized guidance.',
     status: 'Available',
     action: 'Book Session',
-    icon: <Users className="w-6 h-6" />
+    icon: <Users className="w-6 h-6" />,
+    totalModules: 2
   },
   {
     id: '30',

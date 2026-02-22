@@ -4,6 +4,22 @@ import { Badge } from '@/components/ui/badge';
 
 const companies = [
   {
+    name: 'DOCTOR2HOME',
+    description: 'Quick healthcare delivery of doctors, nurses, and physiotherapists to homes and hospitals in a single click under 10 minutes.',
+    status: 'Live',
+    statusColor: 'bg-green-100 text-green-700',
+    image: '/images/blog-healthcare.jpg',
+    link: 'https://doctor2home.vercel.app',
+  },
+  {
+    name: 'CARDIORXIV',
+    description: 'Full agentic preprint journal for medical specialty.',
+    status: 'Beta',
+    statusColor: 'bg-blue-100 text-blue-700',
+    image: '/images/hero-4.jpg',
+    link: '#',
+  },
+  {
     name: 'AITHICAL STUDIOS',
     description: 'Multiple Award winning AI powered movie studio',
     status: 'Seeking Investors',
@@ -12,12 +28,12 @@ const companies = [
     link: '#',
   },
   {
-    name: 'DR.JAICSAM',
+    name: 'DRJAICSAM.XYZ',
     description: 'Worlds most powerful and advanced healthcare doctor chatbot app',
     status: 'Bootstrapped',
     statusColor: 'bg-green-100 text-green-700',
     image: '/images/hero-2.jpg',
-    link: '#',
+    link: 'https://drjaicsam.xyz',
   },
   {
     name: 'STEALTH STARTUP',
@@ -105,6 +121,8 @@ const LatestLaunch = () => {
             <motion.a
               key={company.name}
               href={company.link}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={itemVariants}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300"

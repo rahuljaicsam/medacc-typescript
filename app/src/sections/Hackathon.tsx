@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Users, Award, Lightbulb, ArrowRight } from 'lucide-react';
+import { Calendar, Users, Award, Lightbulb, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+import { Link } from 'react-router-dom';
 
 const Hackathon = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -12,13 +14,8 @@ const Hackathon = () => {
   });
 
   useEffect(() => {
-    // Set target date to next July 26
-    const targetDate = new Date();
-    targetDate.setMonth(6); // July (0-indexed)
-    targetDate.setDate(26);
-    if (targetDate < new Date()) {
-      targetDate.setFullYear(targetDate.getFullYear() + 1);
-    }
+    // Set target date to July 26, 2026
+    const targetDate = new Date('2026-07-26T00:00:00');
 
     const calculateTimeLeft = () => {
       const now = new Date();
@@ -82,22 +79,22 @@ const Hackathon = () => {
                 variants={itemVariants}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6"
               >
-                <CheckCircle className="w-5 h-5 text-green-300" />
-                <span className="font-medium text-sm">Event Completed</span>
+                <Calendar className="w-5 h-5 text-blue-300" />
+                <span className="font-medium text-sm">Upcoming Event</span>
               </motion.div>
 
               <motion.h2
                 variants={itemVariants}
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
               >
-                Asia's Largest Surgical Hackathon
+                Asia's Largest Surgical Hackathon (3rd Edition)
               </motion.h2>
 
               <motion.div
                 variants={itemVariants}
                 className="flex items-center gap-2 text-white/80 mb-4"
               >
-                <span className="font-semibold">July 26-27, 2025</span>
+                <span className="font-semibold">July 26-27, 2026</span>
                 <span>•</span>
                 <span>Kochi, India</span>
               </motion.div>
@@ -106,8 +103,8 @@ const Hackathon = () => {
                 variants={itemVariants}
                 className="text-white/90 text-lg mb-6"
               >
-                12 hours of breakthrough innovation in surgical technology brought together 
-                innovators, surgeons, and technologists
+                12-24 hours of breakthrough innovation in clinical surgical technology bringing together 
+                innovators, surgeons, physicians and technologists
               </motion.p>
 
               <motion.div
@@ -128,14 +125,29 @@ const Hackathon = () => {
                 </div>
               </motion.div>
 
-              <motion.div variants={itemVariants}>
-                <Button
-                  variant="secondary"
-                  className="bg-white text-medical-blue hover:bg-white/90 px-6 py-3 rounded-xl font-semibold group"
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+                <a 
+                  href="https://wa.me/919497612942?text=I%20want%20register%20for%20next%20hackathon"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Read Event Blog
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                  <Button
+                    variant="secondary"
+                    className="bg-white text-medical-blue hover:bg-white/90 px-6 py-3 rounded-xl font-semibold group"
+                  >
+                    Register Now
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
+                
+                <Link to="/hackathon-blog">
+                  <Button
+                    variant="outline"
+                    className="bg-transparent border-white text-white hover:bg-white/10 px-6 py-3 rounded-xl font-semibold"
+                  >
+                    Read Past Event Blog
+                  </Button>
+                </Link>
               </motion.div>
             </div>
 

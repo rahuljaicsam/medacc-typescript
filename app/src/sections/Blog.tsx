@@ -3,51 +3,8 @@ import { ArrowRight, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useRef } from 'react';
-
-const blogPosts = [
-  {
-    title: 'What is med/acc?',
-    category: 'About',
-    excerpt: 'Learn about our mission to accelerate biomedical startups and transform healthcare innovation.',
-    image: '/images/hero-1.jpg',
-    color: 'bg-blue-100 text-blue-700',
-  },
-  {
-    title: 'What is drjaicsam.xyz?',
-    category: 'Product',
-    excerpt: 'Discover the most powerful healthcare doctor chatbot app powered by advanced AI.',
-    image: '/images/hero-2.jpg',
-    color: 'bg-green-100 text-green-700',
-  },
-  {
-    title: 'Global Healthcare: Good, Bad and Ugly?',
-    category: 'Industry',
-    excerpt: 'An in-depth analysis of the current state of global healthcare systems.',
-    image: '/images/blog-healthcare.jpg',
-    color: 'bg-purple-100 text-purple-700',
-  },
-  {
-    title: 'Money - Biomedical Perspective',
-    category: 'Finance',
-    excerpt: 'Understanding funding strategies for healthtech and biotech ventures.',
-    image: '/images/venue-makerspace.jpg',
-    color: 'bg-amber-100 text-amber-700',
-  },
-  {
-    title: 'Auto-Immune Diseases: Digital Therapeutics',
-    category: 'Health',
-    excerpt: 'How digital solutions are revolutionizing autoimmune disease treatment.',
-    image: '/images/hero-3.jpg',
-    color: 'bg-rose-100 text-rose-700',
-  },
-  {
-    title: 'Why do businesses fail?',
-    category: 'Business',
-    excerpt: 'Key lessons from failed startups and how to avoid common pitfalls.',
-    image: '/images/blog-ai.jpg',
-    color: 'bg-cyan-100 text-cyan-700',
-  },
-];
+import { Link } from 'react-router-dom';
+import { blogPosts } from '@/data/blogPosts';
 
 const Blog = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -123,13 +80,13 @@ const Blog = () => {
             >
               <ChevronRight className="w-5 h-5" />
             </Button>
-            <a
-              href="#"
+            <Link
+              to="/blog"
               className="hidden sm:flex items-center gap-2 text-medical-blue font-medium hover:underline ml-4"
             >
               View all
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </motion.div>
 
